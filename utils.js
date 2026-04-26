@@ -48,7 +48,8 @@ function getDaysAgo(timestamp) {
   // 1. 用 dayjs() 取得今天
   // 2. 用 dayjs.unix(timestamp) 取得日期
   // 3. 用 .diff() 計算天數差異
-  return `${dayjs().diff(dayjs.unix(timestamp), "day")} 天前`;
+  const diffDays = dayjs().diff(dayjs.unix(timestamp), "day");
+  return diffDays === 0 ? "今天" : `${diffDays} 天前`;
 }
 
 /**
